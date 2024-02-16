@@ -55,3 +55,11 @@ Expected Output:
 1 3 N
 
 5 1 E
+
+
+Product Owner Clarifications:
+Q: What happens if the controller is bad and makes the rover run out of bounds?
+A: it's a plateau, so I would say the rover falls off altogether and its coordinates are "indeterminate - out of bounds" (as opposed to some sort of vertical lift or sinkhole scenario which would be an "indeterminate - ungrounded" or something)
+
+Q: Can we assume that more than one rover can fit within a single coordinate? If they cannot, should we skip the M action, or make them both "indeterminate - collision", etc.?
+A: I say they can co-reside the same quadrant, like some sort of stacked turtle situation
