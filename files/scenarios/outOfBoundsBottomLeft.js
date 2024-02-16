@@ -1,5 +1,6 @@
 module.exports = {
-  testScenario: {
+  description: "should fall off the plateau as expected on the low end",
+  providedInput: {
     gridSize: {
       xMax: 5,
       yMax: 5,

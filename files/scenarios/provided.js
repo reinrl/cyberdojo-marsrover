@@ -1,5 +1,6 @@
 module.exports = {
-  testScenario: {
+  description: "should navigate the plateau as expected",
+  providedInput: {
     gridSize: {
       xMax: 5,
       yMax: 5,

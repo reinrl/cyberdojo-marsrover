@@ -1,5 +1,7 @@
 module.exports = {
-  testScenario: {
+  description:
+    "should refuse action if the orientation is not one of the understood four compass headings",
+  providedInput: {
     gridSize: {
       xMax: 5,
       yMax: 5,

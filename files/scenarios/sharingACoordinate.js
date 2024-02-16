@@ -1,5 +1,6 @@
 module.exports = {
-  testScenario: {
+  description: "should be ok landing in the same place",
+  providedInput: {
     gridSize: {
       xMax: 5,
       yMax: 5,
