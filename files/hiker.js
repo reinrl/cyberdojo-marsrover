@@ -18,7 +18,7 @@ function isOnTheMap(gridSize, roverPosition) {
 }
 
 function moveRover(roverPosition) {
-  let newRoverPosition = roverPosition;
+  let newRoverPosition = Object.assign({}, roverPosition);
 
   switch (roverPosition.orientation) {
     case "N":
@@ -82,19 +82,29 @@ function explore(mission) {
   // one small step for rover kind...
   for (let i = 0; i < numberOfSteps; i++) {
     // loop through the roverList, moving them based on their provided instructions one at a time
-    mission.roverList.forEach((rover) => {
+    mission.roverList.forEach((rover, roverIdx) => {
       if (rover.position !== "indeterminate - out of bounds") {
         // do the instruction per Space Force direction
-        rover.position = processInstruction(
+        const proposedPos = processInstruction(
           rover.position,
-          rover.instructions.substring(0,1)
+          rover.instructions.substring(0, 1)
         );
+
+        const isOccupied = mission.roverList.some(
+          (thatRover, thatRoverIdx) =>
+            thatRover.position.x === proposedPos.x &&
+            thatRover.position.y === proposedPos.y &&
+            roverIdx !== thatRoverIdx
+        );
+
+        // we can only move to empty spaces
+        if (!isOccupied) {
+          rover.position = proposedPos;
+        }
       }
 
       // this instruction has been processed, so remove it
       rover.instructions = rover.instructions.substring(1);
-
-      
 
       // check the out of bounds and short-circuit if we are
       if (!isOnTheMap(mission.gridSize, rover.position)) {
@@ -102,7 +112,6 @@ function explore(mission) {
       }
     });
   }
-
 
   return mission.roverList;
 }

@@ -28,7 +28,7 @@ module.exports = {
   expectedResults: [
     {
       position: {
-        x: 3,
+        x: 2,
         y: 3,
         orientation: "N",
       },
