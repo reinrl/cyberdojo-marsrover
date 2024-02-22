@@ -63,3 +63,16 @@ A: it's a plateau, so I would say the rover falls off altogether and its coordin
 
 Q: Can we assume that more than one rover can fit within a single coordinate? If they cannot, should we skip the M action, or make them both "indeterminate - collision", etc.?
 A: I say they can co-reside the same quadrant, like some sort of stacked turtle situation
+
+do as many of the following as possible:
+Edit the rover code such that the second rover to arrive at an occupied square would revert back to its previous location and skip that instruction.
+Edit the rover code such that instead of falling off of the edge, any instruction that would have resulted in falling off would instead be ignored/skipped, and the rover would remain in it's current position/orientation.
+Edit the rover code such that instead of falling off of the edge, it makes a 90 degree turn to the right, and do the move in that direction instead of the original orientation.
+Edit the rover code such that the rovers are in love, but it's a toxic romance, as soon as they are in adjacent squares they both die to spend the rest of eternity next to each other on the red planet. Neither of them knows where the other rover is at any time (until its too late obviously). One is named Romeo, and the other is named Juliet. There is also a third rover that is evil named Tybalt intent on finding Juliet to return her to orbit - when Tybalt lands on a square adjacent to Juliet they ascend into space and Romeo is left to wander alone.
+ 
+The star-crossed rovers also have special abilities:
+Romeo can emit noises from a distance to ascertain Juliet's location. One of his moves can be spent sending a signal in the direction of his orientation to serenade his love, if Juliet is in that direction he can adjust the next move in his instructions.
+Juliet can power down and sleep, pretending to be incapacitated, thus causing Tybalt to leave Mars and leave Juliet and Romeo to find each other unencumbered.
+If Romeo serenades Juliet while she is asleep, he instantly self-destructs out of grief (fearing her to be incapacitated).
+ 
+You win the simulation if Romeo and Juliet find each other - all other results are failure.

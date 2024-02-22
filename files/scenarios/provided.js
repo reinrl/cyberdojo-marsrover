@@ -12,7 +12,7 @@ module.exports = {
           y: 2,
           orientation: "N",
         },
-        instructions: "LMLMLMLMM",
+        instructions: "LMLMLMLMMR",
       },
       {
         position: {
@@ -30,7 +30,7 @@ module.exports = {
       position: {
         x: 1,
         y: 3,
-        orientation: "N",
+        orientation: "E",
       },
       instructions: "",
     },
