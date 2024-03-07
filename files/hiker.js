@@ -69,12 +69,27 @@ function turnRover(roverPosition, instruction) {
   };
 }
 
-function processInstruction(roverPosition, instruction) {
-  if (instruction === "M") {
-    return moveRover(roverPosition);
-  }
+function processInstruction(gridSize, roverPosition, instruction) {
+  let isValidMove = false;
+  let startingPosition = Object.assign({}, roverPosition);
+  let proposedPos;
 
-  return turnRover(roverPosition, instruction);
+  do {
+    if (instruction === "M") {
+      proposedPos = moveRover(startingPosition);
+    } else {
+      proposedPos = turnRover(startingPosition, instruction);
+    }
+
+    // is this move valid?
+    isValidMove = isOnTheMap(gridSize, proposedPos);
+    // if the move isn't valid, we turn to the right and try again
+    if (!isValidMove) {
+      startingPosition = turnRover(startingPosition, "R");
+    }
+  } while (!isValidMove);
+
+  return proposedPos;
 }
 
 function explore(mission) {
@@ -85,6 +100,7 @@ function explore(mission) {
     mission.roverList.forEach((rover, roverIdx) => {
       // do the instruction per Space Force direction
       const proposedPos = processInstruction(
+        mission.gridSize,
         rover.position,
         rover.instructions.substring(0, 1)
       );
@@ -97,7 +113,7 @@ function explore(mission) {
       );
 
       // we can only move to empty spaces that are on the map
-      if (!isOccupied && isOnTheMap(mission.gridSize, proposedPos)) {
+      if (!isOccupied) {
         rover.position = proposedPos;
       }
 

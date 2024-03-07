@@ -16,13 +16,12 @@ module.exports = {
       },
     ],
   },
-
   expectedResults: [
     {
       position: {
         x: 0,
-        y: 1,
-        orientation: "S",
+        y: 2,
+        orientation: "W",
       },
       instructions: "",
     },
