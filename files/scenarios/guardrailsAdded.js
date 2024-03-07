@@ -1,25 +1,29 @@
 module.exports = {
-  description: "should fall off the plateau as expected on the high end",
+  description: "should not fall off of flat earth",
   providedInput: {
     gridSize: {
-      xMax: 5,
-      yMax: 5,
+      xMax: 2,
+      yMax: 2,
     },
     roverList: [
       {
         position: {
-          x: 5,
-          y: 5,
+          x: 0,
+          y: 0,
           orientation: "N",
         },
-        instructions: "M",
+        instructions: "MMMRRM",
       },
     ],
   },
 
   expectedResults: [
     {
-      position: "indeterminate - out of bounds",
+      position: {
+        x: 0,
+        y: 1,
+        orientation: "S",
+      },
       instructions: "",
     },
   ],

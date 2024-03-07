@@ -6,9 +6,8 @@ const scenarios = require("./scenarios");
 // object under test
 const explore = require("./hiker");
 
-
-/* const provided = require("./scenarios/provided");
-const scenarios = [provided]; */
+/* const guardrailsAdded = require("./scenarios/guardrailsAdded");
+const scenarios = [guardrailsAdded]; */
 
 describe("Mars Rover", () => {
   scenarios.forEach((scenario) => {

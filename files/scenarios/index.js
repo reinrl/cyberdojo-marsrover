@@ -1,15 +1,13 @@
 const provided = require("./provided");
-const outOfBoundsBottomLeft = require("./outOfBoundsBottomLeft");
-const outOfBoundsTopRight = require("./outOfBoundsTopRight");
 const sharingACoordinate = require("./sharingACoordinate");
 const invalidOrientation = require("./invalidOrientation");
+const guardrailsAdded = require("./guardrailsAdded");
 
 const scenarios = [
   provided,
-  outOfBoundsBottomLeft,
-  outOfBoundsTopRight,
   sharingACoordinate,
   invalidOrientation,
+  guardrailsAdded,
 ];
 
 module.exports = scenarios;
